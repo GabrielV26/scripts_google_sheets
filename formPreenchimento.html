@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      width: 550px;
+      height: 620px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .input-container {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      color: #ffffff;
+      background-color: #8989EB;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div class="input-container">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+    </div>
+    <div class="input-container">
+      <label for="phone">Telefone:</label>
+      <input type="text" id="phone" name="phone">
+    </div>
+    <div class="input-container">
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf">
+    </div>
+    <div class="input-container">
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco">
+    </div>
+    <div class="input-container">
+      <label for="ambiente">Ambiente a ser planejado:</label>
+      <input type="text" id="ambiente" name="ambiente">
+    </div>
+    <div class="input-container">
+      <label for="orcamento">Orçamento:</label>
+      <input type="text" id="orcamento" name="orcamento">
+    </div>
+    <button onclick="saveData()">Salvar</button>
+  </div>
+
+  <script>
+    function saveData() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var cpf = document.getElementById('cpf').value;
+      var endereco = document.getElementById('endereco').value;
+      var ambiente = document.getElementById('ambiente').value;
+      var orcamento = document.getElementById('orcamento').value;
+
+      google.script.run.saveData({ name: name, email: email, phone: phone, cpf: cpf, endereco:endereco, ambiente: ambiente, orcamento: orcamento});
+      google.script.host.close();
+    }
+  </script>
+</body>
+</html>
